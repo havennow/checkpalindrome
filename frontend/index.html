@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Palindrome</title>
+    <meta name="robots" content="noindex, nofollow">
+    <script src="jquery.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="main">
+        <form id="test" method="post" action="#">
+            <h2>Form</h2>
+            <label>Server :</label>
+            <input type="text" name="server" id="server">
+            <label>Palindrome :</label>
+            <input type="text" name="palindrome" id="palindrome">
+            <input type="button" name="button" id="button" value="Test it!">
+        </form>
+    </div>
+
+
+</div>
+    <script>
+
+        $('#button').click(function(){
+            var input = $('#palindrome').val();
+            var server = $('#server').val();
+            if(input.length <= 0)
+            {
+                alert('Not empty');
+            }else {
+
+                $.post('http://'+server+'?palindrome='+input, function (data) {
+                    alert(data.message);
+                });
+
+
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
+
